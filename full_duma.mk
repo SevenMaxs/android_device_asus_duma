@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The Android Open-Source Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,12 +14,17 @@
 # limitations under the License.
 #
 
-# the actual meat of the device-specific product definition
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit from duma device configuration
 $(call inherit-product, device/asus/duma/device.mk)
 
-# inherit from the non-open-source side, if present
-$(call inherit-product-if-exists, vendor/asus/duma/duma-vendor.mk)
-
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_duma
+TARGET_VENDOR := Asus
 PRODUCT_DEVICE := duma
+PRODUCT_NAME := full_duma
+PRODUCT_BRAND := Asus
+PRODUCT_MODEL := Asus MeMOPad10 LTE
+PRODUCT_MANUFACTURER := Asus

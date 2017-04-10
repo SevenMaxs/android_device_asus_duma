@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The Android Open-Source Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@
 
 DEVICE_PATH := device/asus/duma
 
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
-
 # Variants
 TARGET_OTA_ASSERT_DEVICE := duma,K005,ME302KL
 
+# Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := duma
 TARGET_BOOTLOADER_NAME := duma
+TARGET_NO_BOOTLOADER := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -31,15 +31,13 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
 
-# SDClang
+# Snapdragon LLVM
 TARGET_USE_SDCLANG := true
-
-TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=duma user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
-BOARD_KERNEL_CMDLINE += vmalloc=340M
+BOARD_KERNEL_CMDLINE += vmalloc=340M  androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 TARGET_KERNEL_SOURCE := kernel/asus/duma
 TARGET_KERNEL_CONFIG := lineageos_duma_defconfig
@@ -147,6 +145,9 @@ BOARD_HARDWARE_CLASS += \
 # Recovery
 TARGET_RECOVERY_DENSITY := hdpi
 TARGET_RECOVERY_FSTAB = $(DEVICE_PATH)/rootdir/etc/fstab.duma
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)/releasetools
 
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop

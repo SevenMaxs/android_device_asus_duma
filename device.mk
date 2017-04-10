@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The Android Open-Source Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,25 +14,31 @@
 # limitations under the License.
 #
 
+# inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/asus/duma/duma-vendor.mk)
 
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-# Set CM_BUILDTYPE
+# Set LineageOS build tipe
 CM_BUILDTYPE := NIGHTLY
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS := device/asus/duma/overlay
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# This device is xhdpi.  However the platform doesn't
-# currently contain all of the bitmaps at xhdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the xhdpi doesn't exist.
+# Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240
+
 # A list of dpis to select prebuilt apk, in precedence order.
 PRODUCT_AAPT_PREBUILT_DPI := hdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1200
+TARGET_SCREEN_WIDTH := 1920
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Rild
 PRODUCT_PACKAGES := \
@@ -58,11 +64,6 @@ PRODUCT_PACKAGES += \
     bdAddrLoader \
     hci_qcomm_init \
     init.duma.bt.sh
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1200
-TARGET_SCREEN_WIDTH := 1920
-TARGET_BOOTANIMATION_HALF_RES := true
 
 # Preset for Russia
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -212,5 +213,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcomvoiceprocessingdescriptors
-
-PRODUCT_GMS_CLIENTID_BASE := android-asus

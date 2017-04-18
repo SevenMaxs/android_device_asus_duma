@@ -26,6 +26,35 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/hostapd
 include $(BUILD_PREBUILT)
 
+# Create links for audcal data files
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9310; \
+	ln -sf /data/misc/audio/wcd9310_anc.bin \
+		$(TARGET_OUT)/etc/firmware/wcd9310/wcd9310_anc.bin;\
+	ln -sf /data/misc/audio/mbhc.bin \
+		$(TARGET_OUT)/etc/firmware/wcd9310/wcd9310_mbhc.bin)
+
+# Create links for firmware files
+$(shell ln -sf /system/vendor/firmware/a300_pfp.fw \
+		$(TARGET_OUT)/etc/firmware/a300_pfp.fw;\
+	ln -sf /system/vendor/firmware/a300_pm4.fw \
+		$(TARGET_OUT)/etc/firmware/a300_pm4.fw;\
+	ln -sf /system/vendor/firmware/leia_pfp_470.fw \
+		$(TARGET_OUT)/etc/firmware/leia_pfp_470.fw;\
+	ln -sf /system/vendor/firmware/leia_pm4_470.fw \
+		$(TARGET_OUT)/etc/firmware/leia_pm4_470.fw)
+
+# Create links for tzapps files
+$(shell ln -sf /system/vendor/firmware/tzapps.b00 \
+		$(TARGET_OUT)/etc/firmware/tzapps.b00;\
+	ln -sf /system/vendor/firmware/tzapps.b01 \
+		$(TARGET_OUT)/etc/firmware/tzapps.b01;\
+	ln -sf /system/vendor/firmware/tzapps.b02 \
+		$(TARGET_OUT)/etc/firmware/tzapps.b02;\
+	ln -sf /system/vendor/firmware/tzapps.b03 \
+		$(TARGET_OUT)/etc/firmware/tzapps.b03;\
+	ln -sf /system/vendor/firmware/tzapps.mdt \
+		$(TARGET_OUT)/etc/firmware/tzapps.mdt)
+
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 endif

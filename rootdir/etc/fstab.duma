@@ -25,4 +25,5 @@
 /dev/block/platform/msm_sdcc.1/by-name/tzb          /tzb            emmc    defaults                                                                                            defaults
 /dev/block/platform/msm_sdcc.1/by-name/rpmb         /rpmb           emmc    defaults                                                                                            defaults
 /dev/block/platform/msm_sdcc.1/by-name/abootb       /abootb         emmc    defaults                                                                                            defaults
-/devices/platform/msm_hsusb_host/usb*               auto            auto    defaults                                                                                            voldmanaged=usb:auto,noemulatedsd
+/devices/platform/msm_sdcc.3/mmc_host*              auto            auto    nosuid,nodev                                                                                        voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/msm_hsusb_host/usb*               auto            auto    nosuid,nodev                                                                                        voldmanaged=usb:auto,noemulatedsd

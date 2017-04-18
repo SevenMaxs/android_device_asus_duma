@@ -19,6 +19,7 @@ LOCAL_PATH := $(call my-dir)
 # Device init scripts
 
 ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),duma)
+
 include $(CLEAR_VARS)
 LOCAL_MODULE  := fstab.duma
 LOCAL_MODULE_TAGS := optional eng

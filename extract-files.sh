@@ -17,8 +17,8 @@
 
 #set -e
 
-export DEVICE=duma
-export VENDOR=asus
+DEVICE=duma
+VENDOR=asus
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

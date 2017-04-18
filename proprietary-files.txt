@@ -136,6 +136,8 @@ vendor/firmware/keymaster/keymaster.b01
 vendor/firmware/keymaster/keymaster.b02
 vendor/firmware/keymaster/keymaster.b03
 vendor/firmware/keymaster/keymaster.mdt
+vendor/firmware/leia_pfp_470.fw
+vendor/firmware/leia_pm4_470.fw
 vendor/firmware/q6.b00
 vendor/firmware/q6.b01
 vendor/firmware/q6.b03

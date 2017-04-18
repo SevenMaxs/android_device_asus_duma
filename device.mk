@@ -59,11 +59,23 @@ PRODUCT_COPY_FILES += \
     device/asus/duma/audio/audio_policy.conf:system/etc/audio_policy.conf \
     device/asus/duma/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Get the long list of APNs
+PRODUCT_COPY_FILES += \
+    device/asus/duma/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     bdAddrLoader \
     hci_qcomm_init \
     init.duma.bt.sh
+
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0
+ 
+# Configure ro.recents.grid
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.recents.grid=true
 
 # Preset for Russia
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -137,7 +149,7 @@ PRODUCT_COPY_FILES += \
     device/asus/duma/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Misc
-PRODUCT_CHARACTERISTICS := tablet,nosdcard
+PRODUCT_CHARACTERISTICS := tablet
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -207,7 +219,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/asus/duma/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
     device/asus/duma/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/asus/duma/wifi/WCNSS_qcom_wlan_nv_duma.bin:system/etc/wifi/WCNSS_qcom_wlan_nv_duma.bin
+    device/asus/duma/wifi/WCNSS_qcom_wlan_nv_duma.bin:system/etc/wifi/WCNSS_qcom_wlan_nv_deb.bin
 
 # Voice processing
 PRODUCT_PACKAGES += \

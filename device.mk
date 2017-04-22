@@ -85,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap \
+    Camera2 \
     camera.duma
 
 PRODUCT_PACKAGES += \

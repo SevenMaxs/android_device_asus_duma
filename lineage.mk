@@ -20,6 +20,9 @@ $(call inherit-product, device/asus/duma/full_duma.mk)
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_mini_tablet_wifionly.mk)
 
+# Inherit telephony stuff
+$(call inherit-product, vendor/cm/config/telephony.mk)
+
 PRODUCT_NAME := lineage_duma
 BOARD_VENDOR := Asus
 

@@ -75,7 +75,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
  
 # Configure ro.recents.grid
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.recents.grid=true
+    ro.recents.grid=false
 
 # Preset for Russia
 PRODUCT_PROPERTY_OVERRIDES += \

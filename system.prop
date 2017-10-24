@@ -57,13 +57,12 @@ dalvik.vm.dex2oat-swap=false
 
 # Graphics
 ro.opengles.version=196608
-debug.hwui.use_buffer_age=false
+debug.composition.type=gpu
 
 # Display
 persist.hwc.mdpcomp.enable=true
 
 # Telephony
-rild.libpath=/system/lib/libril-qc-qmi-1.so
 # Preferred network type - LTE, WCDMA, GSM
 ro.telephony.default_network=9
 ro.telephony.get_imsi_from_sim=true

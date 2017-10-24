@@ -33,7 +33,7 @@ TARGET_CPU_VARIANT := krait
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
-
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=duma user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
@@ -143,6 +143,10 @@ BOARD_GLOBAL_CPPFLAGS += -DQCOM_BSP_LEGACY
 TARGET_QCOM_AUDIO_VARIANT := caf-msm8960
 TARGET_QCOM_MEDIA_VARIANT := caf-msm8974
 TARGET_QCOM_DISPLAY_VARIANT := caf-msm8960
+
+# Graphics
+SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true

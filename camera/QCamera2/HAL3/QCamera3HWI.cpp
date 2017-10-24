@@ -168,7 +168,7 @@ QCamera3HardwareInterface::QCamera3HardwareInterface(int cameraId)
       mPrecaptureId(0)
 {
     mCameraDevice.common.tag = HARDWARE_DEVICE_TAG;
-    mCameraDevice.common.version = CAMERA_DEVICE_API_VERSION_3_0;
+    mCameraDevice.common.version = CAMERA_DEVICE_API_VERSION_3_2;
     mCameraDevice.common.close = close_camera_device;
     mCameraDevice.ops = &mCameraOps;
     mCameraDevice.priv = this;

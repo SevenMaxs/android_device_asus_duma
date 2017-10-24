@@ -40,11 +40,22 @@ TARGET_SCREEN_HEIGHT := 1200
 TARGET_SCREEN_WIDTH := 1920
 TARGET_BOOTANIMATION_HALF_RES := true
 
+# Features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
 # Rild
 PRODUCT_PACKAGES := \
     rild \
     CarrierConfig \
     BasicSmsReceiver
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+
+# Disable EGL buffer_age extension support
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_buffer_age=false
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -90,9 +101,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.language=ru \
     persist.sys.country=RU
 
-# FM
+#FM Radio
 PRODUCT_PACKAGES += \
-    FMRadio \
     libqcomfm_jni \
     qcom.fmradio \
     qcom.fmradio.xml
@@ -107,10 +117,14 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     Camera2 \
     camera.duma
-     #camera.msm8960
+    #camera.msm8960
 
 PRODUCT_PACKAGES += \
     hostapd_default.conf
+
+# Disable camera Treble path
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_treble=true
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -148,13 +162,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
 
-# RenderScript HIDL iterfaces
+# RenderScript HIDL interfaces
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL HIDL interfaces
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.0-impl
+    android.hardware.radio@1.0-impl \
+    android.hardware.radio.deprecated@1.0-impl
 
 # Configstore HIDL interfaces
 PRODUCT_PACKAGES += \

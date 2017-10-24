@@ -124,11 +124,11 @@
 /system/bin/mpdecision             u:object_r:mpdecision_exec:s0
 /system/bin/sensors\.qcom           u:object_r:sensors_exec:s0
 /system/bin/mm-qcamera-daemon      u:object_r:camera_exec:s0
-/system/bin/qseecomd               u:object_r:tee_exec:s0
 /system/bin/conn_init              u:object_r:conn_init_exec:s0
 /system/bin/init\.duma\.wifi\.sh    u:object_r:conn_init_exec:s0
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
 /system/bin/init\.duma\.bt\.sh      u:object_r:bluetooth_loader_exec:s0
+/system/vendor/bin/qseecomd        u:object_r:tee_exec:s0
 
 # Persist firmware filesystem
 /persist(/.*)?                    u:object_r:persist_file:s0

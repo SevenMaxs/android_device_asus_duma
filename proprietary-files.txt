@@ -97,9 +97,9 @@ lib/libsensor_user_cal.so
 lib/libsensor1.so
 lib/libstagefright_hdcp.so
 lib/libxml.so
+vendor/bin/qseecomd
 -vendor/firmware/a300_pfp.fw
 -vendor/firmware/a300_pm4.fw
-vendor/bin/qseecomd
 vendor/firmware/bcm2079x-b5_firmware.ncd
 vendor/firmware/bcm2079x-b5_pre_firmware.ncd
 vendor/firmware/discretix/dxhdcp2.b00
@@ -160,6 +160,11 @@ vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libplayback_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
+vendor/lib/libaptX_encoder.so
+vendor/lib/libaptX-1.0.0-rel-Android21-ARMv7A.so
+vendor/lib/libaptXHD_encoder.so
+vendor/lib/libaptXHD-1.0.0-rel-Android21-ARMv7A.so
+vendor/lib/libaptXScheduler.so
 vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
 vendor/lib/libc2d30.so

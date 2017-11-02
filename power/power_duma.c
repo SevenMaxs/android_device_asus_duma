@@ -36,6 +36,7 @@
 
 #define STATE_ON "state=1"
 #define STATE_OFF "state=0"
+#define DOUBLE_TAP_TO_WAKE_PATH "/sys/android_touch/doubletap2_wake"
 
 #define MAX_LENGTH         50
 #define BOOST_SOCKET       "/dev/socket/pb"
@@ -107,6 +108,22 @@ static int sysfs_write_int(char *path, int value)
     char buf[80];
     snprintf(buf, 80, "%d", value);
     return sysfs_write(path, buf);
+}
+
+static void grouper_power_set_feature(__attribute__((unused)) struct power_module *module, feature_t feature,
+				      __attribute__((unused)) int state)
+{
+    switch (feature) {
+    case POWER_FEATURE_DOUBLE_TAP_TO_WAKE:
+        pthread_mutex_lock(&profile_lock);
+        sysfs_write(DOUBLE_TAP_TO_WAKE_PATH, state ? "1\n" : "0\n");
+        ALOGD("Set the POWER_FEATURE_DOUBLE_TAP_TO_WAKE to %d\n", state);
+        pthread_mutex_unlock(&profile_lock);
+        break;
+    default:
+        ALOGW("Error setting the feature, it doesn't exist %d\n", feature);
+        break;
+    }
 }
 
 static void power_init(__attribute__((unused)) struct power_module *module)
@@ -322,5 +339,6 @@ struct power_module HAL_MODULE_INFO_SYM = {
     .init = power_init,
     .setInteractive = power_set_interactive,
     .powerHint = power_hint,
+    .setFeature = grouper_power_set_feature,
     .getFeature = get_feature
 };

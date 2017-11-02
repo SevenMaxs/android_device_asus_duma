@@ -1,0 +1,2 @@
+allow adbd sysfs:file r_file_perms;
+allow adbd ctl_mdnsd_prop:property_service set;

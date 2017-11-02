@@ -2,6 +2,11 @@
 qcom.bluetooth.soc=smd
 ro.qualcomm.bt.hci_transport=smd
 
+# Qualcomm BT aptXHD
+persist.bt.enableAptXHD=true
+persist.service.btui.use_aptx=1
+persistent.bt.a2dp_offload_cap=sbc-aptx-aptXHD
+
 # Audio
 # Monitor device rotation for speaker channel swap
 ro.audio.monitorRotation=true
@@ -72,6 +77,9 @@ DEVICE_PROVISIONED=1
 persist.radio.apm_sim_not_pwdn=1
 # Display Traditional Chinese/Simplified Chinese carriers name
 persist.radio.use_cc_names=true
+
+# Battery Drain in sleep mode
+pm.sleep_mode=1
 
 # Baseband version
 gsm.version.baseband=Oreo-J00_0.35.0_1002
